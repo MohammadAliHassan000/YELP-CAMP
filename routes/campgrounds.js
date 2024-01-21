@@ -30,8 +30,8 @@ router.get(
 
 router.get(
   "/new",
-  catchAsync((req, res) => {
-    console.log("here");
+  isLoggedIn,
+  catchAsync(async(req, res) => {
     res.render("campgrounds/new");
   })
 );
@@ -99,5 +99,7 @@ router.delete(
     res.redirect("/campgrounds");
   })
 );
+
+
 
 module.exports = router;
